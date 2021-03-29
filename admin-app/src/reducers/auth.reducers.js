@@ -6,17 +6,20 @@ const initState = {
         firstName: '',
         lastName: '',
         email: '',
-        picture: '' 
+        picture: ''
     },
     authenticate: false,
-    authenticating: false
+    authenticating: false,
+    loading: false,
+    error: null,
+    message: ''
 };
 
-export default (state = {}, action) => {
+export default (state = initState, action) => {
 
     console.log(action);
 
-    switch(action.type){
+    switch (action.type) {
         case authConstants.LOGIN_REQUEST:
             state = {
                 ...state,
@@ -24,7 +27,7 @@ export default (state = {}, action) => {
             }
             break;
         case authConstants.LOGIN_SUCCESS:
-            state ={
+            state = {
                 ...state,
                 user: action.payload.user,
                 token: action.payload.token,
@@ -33,10 +36,24 @@ export default (state = {}, action) => {
             }
             break;
         case authConstants.LOGOUT_REQUEST:
-            state ={
+            state = {
+                ...state,
+                loading: true
+            }
+            break;
+        case authConstants.LOGOUT_SUCCESS:
+            state = {
                 ...initState
             }
             break;
+        case authConstants.LOGOUT_FAILURE:
+            state = {
+                ...state,
+                error: action.payload.error,
+                loading: false
+            }
+            break;
+
     }
 
 

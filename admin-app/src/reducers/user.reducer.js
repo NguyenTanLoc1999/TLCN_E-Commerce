@@ -17,15 +17,15 @@ export default (state = initState, action) => {
         case userConstants.USER_REGISTER_SUCCESS:
             state = {
                 ...state,
-                loading: true,
+                loading: false,
                 message: action.payload.message
             }
             break;
         case userConstants.USER_REGISTER_FAILURE:
             state = {
                 ...state,
-                loading: true,
-                error: action.payload.message
+                loading: false,
+                error: action.payload.error
             }
             break;
     }

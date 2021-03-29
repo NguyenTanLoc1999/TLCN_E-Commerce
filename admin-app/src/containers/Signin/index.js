@@ -13,59 +13,59 @@ import { Redirect } from 'react-router-dom';
 
 const Signin = (props) => {
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
-    const auth = useSelector(state => state.auth);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const auth = useSelector(state => state.auth);
 
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    const userLogin = (e) => {
+  const userLogin = (e) => {
 
-        e.preventDefault();
+    e.preventDefault();
 
-        const user = {
-            email, password
-        }
-
-        dispatch(login(user));
+    const user = {
+      email, password
     }
 
-    if(auth.authenticate){
-        return <Redirect to={`/`} />
-    }
+    dispatch(login(user));
+  }
 
-    return (
-        <Layout>
-            <Container>
-                <Row style={{ marginTop: '100px' }}>
-                    <Col md={{ span: 6, offset: 3 }}>
-                        <Form onSubmit={userLogin}>
-                            <Input
-                                label="Email"
-                                placeholder="Email"
-                                value={email}
-                                type="email"
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
-                            <Input
-                                label="Password"
-                                placeholder="Password"
-                                value={password}
-                                type="password"
-                                onChange={(e) => setPassword(e.target.value)}
-                            />
+  if (auth.authenticate) {
+    return <Redirect to={`/`} />
+  }
 
-                            <Button variant="primary" type="submit">
-                                Submit
+  return (
+    <Layout>
+      <Container>
+        <Row style={{ marginTop: '100px' }}>
+          <Col md={{ span: 6, offset: 3 }}>
+            <Form onSubmit={userLogin}>
+              <Input
+                label="Email"
+                placeholder="Email"
+                value={email}
+                type="email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+
+              <Input
+                label="Password"
+                placeholder="Password"
+                value={password}
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <Button variant="primary" type="submit">
+                Submit
                             </Button>
-                        </Form>
-                    </Col>
-                </Row>
+            </Form>
+          </Col>
+        </Row>
 
-            </Container>
-        </Layout>
-    )
+      </Container>
+    </Layout>
+  )
 
 }
 
