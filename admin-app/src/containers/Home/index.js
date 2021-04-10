@@ -14,6 +14,19 @@ const Home = (props) => {
   return (
     <Layout sidebar>
 
+      <Container fluid>
+        <Row>
+          <Col md={2} className="slidebar">
+            <ul>
+              <li><NavLink to ={`/`}>Home</NavLink></li>
+              <li><NavLink to ={`/products`}>Home</NavLink></li>
+              <li><NavLink to ={`/orders`}>Home</NavLink></li>
+            </ul>
+          </Col>
+          <Col md={10} style={{ marginLeft: 'auto' }}>conatiner</Col>
+        </Row>
+      </Container>
+
       
 
       <Jumbotron style={{margin: '5rem', background: '#fff'}} className="text-center">
