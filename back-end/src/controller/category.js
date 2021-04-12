@@ -52,4 +52,35 @@ exports.getCategories = (req, res) => {
         res.status(200).json({ categoryList });
       }
     });
-  };
+  }
+
+exports.updateCategories =(req, res) =>{
+
+  const {_id, name, parentId, type } = req.body;
+  const updateCategories =[];
+  if(name instanceof Array){
+    for(let i=0; i< name.length; i++){
+      const category = {
+        name: name[i],
+        type: type[i]
+      };
+      if(parentId !== ""){
+        category.parentId = parentId[i];
+      }
+      const updateCategory = await Category.findOneAndUpdate({_id}, category, {new : true});
+      updateCategories.push(updateCategory);
+      return res.status(201).json({ updateCategories });
+    }
+  }else{
+    const category = {
+      name,
+      type
+    };
+    if(parenId !== ""){
+      category.parentId = parentId;
+    }
+    const updateCategory = await Category.findOneAndUpdate({_id}, category, {new : true});
+    return res.status(201).json({ updateCategory });
+  }
+}
+ 
