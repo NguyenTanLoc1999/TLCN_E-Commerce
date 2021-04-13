@@ -67,7 +67,7 @@ exports.updateCategories =(req, res) =>{
       if(parentId !== ""){
         category.parentId = parentId[i];
       }
-      const updateCategory = await Category.findOneAndUpdate({_id}, category, {new : true});
+      const updateCategory = Category.findOneAndUpdate({_id}, category, {new : true});
       updateCategories.push(updateCategory);
       return res.status(201).json({ updateCategories });
     }
@@ -79,7 +79,7 @@ exports.updateCategories =(req, res) =>{
     if(parenId !== ""){
       category.parentId = parentId;
     }
-    const updateCategory = await Category.findOneAndUpdate({_id}, category, {new : true});
+    const updateCategory = Category.findOneAndUpdate({_id}, category, {new : true});
     return res.status(201).json({ updateCategory });
   }
 }

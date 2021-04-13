@@ -16,7 +16,7 @@ import {
   IoIosTrash,
   IoIosCloudUpload
 } from 'react-icons/io'
-import { updateCategories } from '../../../../back-end/src/controller/category';
+//import { updateCategories } from '../../../../back-end/src/controller/category';
 
 /**
 * @author
