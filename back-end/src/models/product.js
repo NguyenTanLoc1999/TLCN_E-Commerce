@@ -24,10 +24,9 @@ const productSchema = new mongoose.Schema({
         trim: true
     },
     offer: { type: Number },
-    productPictures: {
-        type: Object,
-        required: true 
-    },
+    productPictures: [
+        { img: { type: String } }
+    ],
     reviews: [
         {
             userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},

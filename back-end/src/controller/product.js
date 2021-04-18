@@ -4,16 +4,16 @@ const slugify = require("slugify");
 const Category = require("../models/category");
 
 exports.createProduct = (req, res) => {
-  //res.status(200).json( { file: req.files, body: req.body } );
+  //res.status(200).json( {file: req.files, body: req.body } );
 
-  const { name, price, description, category,productPictures, quantity, createdBy } = req.body;
-  //let productPictures = [];
-  if(!productPictures) return res.status(400).json({msg: "No image upload"})
-  // if (req.files.length > 0) {
-  //   productPictures = req.files.map((file) => {
-  //     return { img: file.filename };
-  //   });
-  // }
+  const { name, price, description, category, quantity, createdBy } = req.body;
+  let productPictures = [];
+  //if(!productPictures) return res.status(400).json({msg: "No image upload"})
+  if (req.files.length > 0) {
+    productPictures = req.files.map((file) => {
+      return { img: file.filename };
+    });
+  }
 
   const product = new Product({
     name: name,

@@ -5,6 +5,7 @@ import { addProduct } from '../../actions';
 import Layout from '../../components/Layout'
 import Input from '../../components/UI/Input';
 import Modal from '../../components/UI/Modal';
+import { generatePublicUrl } from "../../urlConfig";
 import "./style.css";
 
 /**
@@ -68,7 +69,7 @@ const Products = (props) => {
 
   const renderProducts = () => {
     return (
-      <Table style={{fontSize:12}} responsive="sm">
+      <Table style={{ fontSize: 12 }} responsive="sm">
         <thead>
           <tr>
             <th>#</th>
@@ -83,7 +84,7 @@ const Products = (props) => {
           {
             product.products.length > 0 ?
               product.products.map(product =>
-                <tr onClick={()=> showProductDetailsModal(product)} key={product._id}>
+                <tr onClick={() => showProductDetailsModal(product)} key={product._id}>
                   <td>2</td>
                   <td>{product.name}</td>
                   <td>{product.price}</td>
@@ -201,10 +202,12 @@ const Products = (props) => {
         <Row>
           <Col>
             <label className="key">Product Pictures</label>
-            <div style={{ display: "flex" }}>       
+            <div style={{ display: "flex" }}>
+              {productDetails.productPictures.map((picture) => (
                 <div className="productImgContainer">
-                  <img src={'https://res.cloudinary.com/loceli/image/upload/v1617628069/ecommerceClothes/c8qaw06ctg68wujep0u8.jpg'} />
+                  <img src={generatePublicUrl(picture.img)} />
                 </div>
+              ))}
 
             </div>
           </Col>
