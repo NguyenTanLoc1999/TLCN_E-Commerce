@@ -39,8 +39,6 @@ const Category = (props) => {
 
   const handleClose = () => {
     // const form = new FormData();
-
-
     // form.append('name', categoryName);
     // form.append('parentId', parentCategoryId);
 
@@ -50,13 +48,6 @@ const Category = (props) => {
     }
     //form.append('categoryImage', categoryImage);
     dispatch(addCategory(newCategory));
-
-    // const cat ={
-    //   categoryName,
-    //   parentCategoryId,
-    //   //categoryImage
-    // }
-    // console.log(cat);
 
     setShow(false);
   };
@@ -96,9 +87,9 @@ const Category = (props) => {
     return options;
   }
 
-  const handleCategoryImage = (e) => {
-    //setCategoryImage(e.target.files[0]);
-  }
+  // const handleCategoryImage = (e) => {
+  //   //setCategoryImage(e.target.files[0]);
+  // }
 
   const updateCategory = () => {
     updateCheckedAndExpandedCategories();
@@ -137,18 +128,44 @@ const Category = (props) => {
 const updateCategoriesForm = () => {
   const form = new FormData();
 
+  const newArr = []
+  //const newObj={};
   expandedArray.forEach((item, index) => {
-    form.append('_id', item.value);
-    form.append('name', item.name);
-    form.append('parentId', item.parentId ? item.parentId : "");
+    // form.append('_id', item.value);
+    // form.append('name', item.name);
+    // form.append('parentId', item.parentId ? item.parentId : "");
+    // form.append('type', item.type);
+    const newCategoryUpdate = {
+      _id:item.value,
+      name:item.name,
+      parentId:item.parentId,
+      type:item.type
+    }
+
+    newArr.push(newCategoryUpdate)
   });
 
   checkedArray.forEach((item, index) => {
-    form.append('_id', item.value);
-    form.append('name', item.name);
-    form.append('parentID', item.parentId ? item.parentId : "");
+    // form.append('_id', item.value);
+    // form.append('name', item.name);
+    // form.append('parentID', item.parentId ? item.parentId : "");
+    // form.append('type', item.type);
+    const newCategoryUpdate = {
+      _id:item.value,
+      name:item.name,
+      parentId:item.parentId,
+      type:item.type
+    }
+
+    newArr.push(newCategoryUpdate)
   });
-  dispatch(updateCategories(form));
+  //console.log(newArr);
+  dispatch(updateCategories(newArr))
+  .then(result =>{
+    if(result){
+      dispatch(getAllCategory())
+    }
+  });
 
   setUpdateCategoryModal(false);
 }
