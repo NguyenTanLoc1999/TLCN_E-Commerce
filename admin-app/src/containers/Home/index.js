@@ -14,7 +14,7 @@ const Home = (props) => {
   return (
     <Layout sidebar>
 
-      <Container fluid>
+      {/* <Container fluid>
         <Row>
           <Col md={2} className="slidebar">
             <ul>
@@ -25,7 +25,7 @@ const Home = (props) => {
           </Col>
           <Col md={10} style={{ marginLeft: 'auto' }}>conatiner</Col>
         </Row>
-      </Container>
+      </Container> */}
 
       
 

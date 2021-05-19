@@ -37,6 +37,7 @@ const Products = (props) => {
   const product = useSelector((state) => state.product);
   const dispatch = useDispatch();
 
+
   const handleClose = () => {
     setShow(false);
   };
@@ -72,12 +73,13 @@ const Products = (props) => {
     setProductPictures([...productPictures, e.target.files[0]]);
   };
 
+  
   const renderProducts = () => {
     return (
       <Table style={{ fontSize: 12 }} responsive="sm">
         <thead>
           <tr>
-            <th>#</th>
+            <th>ID</th>
             <th>Name</th>
             <th>Price</th>
             <th>Quantity</th>
@@ -87,9 +89,9 @@ const Products = (props) => {
         </thead>
         <tbody>
           {product.products.length > 0
-            ? product.products.map((product) => (
+            ? product.products.map((product,index) => (
                 <tr key={product._id}>
-                  <td>2</td>
+                  <td>{index}</td>
                   <td>{product.name}</td>
                   <td>{product.price}</td>
                   <td>{product.quantity}</td>
@@ -109,7 +111,6 @@ const Products = (props) => {
                     ><IoIosTrash /> 
                     <span>Del</span>
                     </button>
-                    
                   </td>
                 </tr>
               ))

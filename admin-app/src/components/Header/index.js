@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import { NavLink, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -11,15 +11,20 @@ import { signout } from "../../actions";
 
 const Header = (props) => {
   const auth = useSelector((state) => state.auth);
+  const user = useSelector((state)=>state.user);
+  //const [user, setUser] = useState('');
   const dispatch = useDispatch();
-
+  console.log('user',user);
   const logout = () => {
     dispatch(signout());
   };
 
   const renderLoggedInLinks = () => {
     return (
+      // { expandedArray.map((item, index) => <span key={index}>{item.name}</span>)}
       <Nav>
+        {/* {user.map((item,index)=> <span key={index} className="nav-link">{item.user}</span>)} */}
+        <span key={user._id}>{user.email}</span>
         <li className="nav-item">
           <span className="nav-link" onClick={logout}>
             Signout
