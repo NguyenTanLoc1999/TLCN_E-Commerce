@@ -11,6 +11,7 @@ import { isUserLoggedIn} from './actions';
 import Products from './containers/Products';
 import { getInitialData } from './actions/initilData.action';
 import NewPage from './containers/NewPage';
+import Orders from './containers/Orders';
 
 function App() {
 
@@ -33,6 +34,8 @@ function App() {
         <PrivateRoute path="/page" component={NewPage} />
         <PrivateRoute path="/category" component={Category} />
         <PrivateRoute path="/products" component={Products} />
+        <PrivateRoute path="/orders" component={Orders} />
+
         <Route path="/signin" component={Signin} />
         <Route path="/signup" component={Signup} />
       </Switch>
