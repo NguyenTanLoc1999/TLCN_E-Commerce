@@ -55,7 +55,7 @@ const ProductStore = (props) => {
                   }}
                   className="productContainer"
                 >
-                  <div className="productImgContainer">
+                  <div className="productImgContainer" >
                     <img src={generatePublicUrl(product.productPictures[0].img)} alt="" />
                   </div>
                   <div className="productInfo">

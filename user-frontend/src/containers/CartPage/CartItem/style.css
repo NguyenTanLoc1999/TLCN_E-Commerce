@@ -25,6 +25,7 @@
 }
 .cartItemDetails{
     display: flex;
+    margin-left: 5px;
     justify-content: space-between;
     flex: 1;
 }

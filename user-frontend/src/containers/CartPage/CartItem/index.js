@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./style.css";
-
+import {generatePublicUrl} from '../../../urlConfig';
 /**
  * @author
  * @function CartItem
@@ -26,12 +26,12 @@ const CartItem = (props) => {
     <div className="cartItemContainer">
       <div className="flexRow">
         <div className="cartProImgContainer">
-          <img src={img} alt={""} />
+          <img src={generatePublicUrl(img)} alt={""} />
         </div>
         <div className="cartItemDetails">
           <div>
             <p>{name}</p>
-            <p>Rs. {price}</p>
+            <p>Price: {price}</p>
           </div>
           <div>Delivery in 3 - 5 days</div>
         </div>
