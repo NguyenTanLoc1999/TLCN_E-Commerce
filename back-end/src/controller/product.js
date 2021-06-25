@@ -35,6 +35,58 @@ exports.createProduct = (req, res) => {
 };
 
 
+exports.getProductsBySlug = (req, res) => {
+  const { slug } = req.params;
+  Category.findOne({ slug: slug })
+    .select("_id type")
+    .exec((error, category) => {
+      if (error) {
+        return res.status(400).json({ error });
+      }
+
+      if (category) {
+        Product.find({ category: category._id }).exec((error, products) => {
+          if (error) {
+            return res.status(400).json({ error });
+          }
+
+          if (category.type) {
+            if (products.length > 0) {
+              res.status(200).json({
+                products,
+                priceRange: {
+                  under50k: 50000,
+                  under100k: 100000,
+                  under200k: 200000,
+                  under400k: 400000,
+                  under800k: 800000,
+                },
+                productsByPrice: {
+                  under50k: products.filter((product) => product.price <= 50000),
+                  under100k: products.filter(
+                    (product) => product.price > 50000 && product.price <= 100000
+                  ),
+                  under200k: products.filter(
+                    (product) => product.price > 100000 && product.price <= 200000
+                  ),
+                  under400k: products.filter(
+                    (product) => product.price > 200000 && product.price <= 400000
+                  ),
+                  under800k: products.filter(
+                    (product) => product.price > 400000 && product.price <= 800000
+                  ),
+                },
+              });
+            }
+          } else {
+            res.status(200).json({ products });
+          }
+        });
+      }
+    });
+};
+
+
 exports.getProductDetailsById = (req, res) => {
   const { productId } = req.params;
   if (productId) {

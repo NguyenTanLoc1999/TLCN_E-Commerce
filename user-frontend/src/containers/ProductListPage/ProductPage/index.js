@@ -5,6 +5,7 @@ import getParams from '../../../utils/getParams';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import Card from '../../../components/UI/Card';
+import {generatePublicUrl} from '../../../urlConfig';
 
 /**
 * @author
@@ -37,10 +38,10 @@ const ProductPage = (props) => {
                     page.banners && page.banners.map((banner, index) => 
                         <a 
                             key={index}
-                            style={{ display: 'block' }}
+                            style={{ display: 'block'}}
                             href={banner.navigateTo}
                         >
-                            <img src={banner.img} alt="" />
+                            <img src={banner.img}/>
                         </a>
                     )
                 }
@@ -64,7 +65,7 @@ const ProductPage = (props) => {
                             <img style={{
                                 width: '100%',
                                 height: '100%'
-                            }} src={product.img} alt="" />
+                            }} src={product.img} />
                         </Card>
                     )
                 }

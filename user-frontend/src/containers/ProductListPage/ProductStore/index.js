@@ -6,6 +6,7 @@ import Card from "../../../components/UI/Card";
 import { MaterialButton } from "../../../components/MaterialUI";
 import Rating from "../../../components/UI/Rating";
 import Price from "../../../components/UI/Price";
+import {generatePublicUrl} from "../../../urlConfig";
 
 /**
  * @author
@@ -27,7 +28,7 @@ const ProductStore = (props) => {
       {Object.keys(product.productsByPrice).map((key, index) => {
         return (
           <Card
-            headerLeft={`${props.match.params.slug} mobile under ${priceRange[key]}`}
+            headerLeft={`${props.match.params.slug} price under ${priceRange[key]}`}
             headerRight={
               <MaterialButton
                 title={"VIEW ALL"}
@@ -55,7 +56,7 @@ const ProductStore = (props) => {
                   className="productContainer"
                 >
                   <div className="productImgContainer">
-                    <img src={product.productPictures[0].img} alt="" />
+                    <img src={generatePublicUrl(product.productPictures[0].img)} alt="" />
                   </div>
                   <div className="productInfo">
                     <div style={{ margin: "10px 0" }}>{product.name}</div>

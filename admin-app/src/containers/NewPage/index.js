@@ -50,12 +50,10 @@ const NewPage = (props) => {
   }
 
   const handleBannerImages = (e) => {
-    console.log(e);
     setBanners([...banners, e.target.files[0]]);
   }
 
   const handleProductImages = (e) => {
-    console.log(e);
     setProducts([...products, e.target.files[0]]);
   }
 
@@ -73,14 +71,21 @@ const NewPage = (props) => {
     form.append('description', desc);
     form.append('category', categoryId);
     form.append('type', type);
-    banners.forEach((banner, index) => {
-      form.append('banners', banner);
-    });
-    products.forEach((product, index) => {
-      form.append('products', product);
-    });
 
-    dispatch(createPage(form));
+    // banners.forEach((banner, index) => {
+    //   form.append('banners', banner);
+    // });
+    // products.forEach((product, index) => {
+    //   form.append('products', product);
+    // });
+
+    for (let pic of banners) {
+      form.append("banners", pic);
+    }
+    for (let pic of products) {
+      form.append("products", pic);
+    }
+    dispatch(createPage(form)).then(()=>setCreateModal(false));
 
 
   }
@@ -142,11 +147,9 @@ const NewPage = (props) => {
 
           {
             banners.length > 0 ?
-              banners.map((banner, index) =>
-                <Row key={index}>
-                  <Col>{banner.name}</Col>
-                </Row>
-              ) : null
+              banners.map((banner, index) =>(
+                <div key={index}>{banner.name}</div>
+              )) : null
           }
           <Row>
             <Col>
@@ -158,6 +161,7 @@ const NewPage = (props) => {
               />
             </Col>
           </Row>
+          
 
           {
             products.length > 0 ?

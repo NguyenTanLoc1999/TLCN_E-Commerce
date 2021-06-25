@@ -33,8 +33,8 @@ router.post(
   upload.array('productPicture'),
   createProduct
 );
-//router.get("/products/:slug", getProductsBySlug);
-//router.get("/product/:productId", getProductDetailsById);
+router.get("/products/:slug", getProductsBySlug);
+router.get("/product/:productId", getProductDetailsById);
 router.delete(
   "/product/deleteProductById",
   requireSignin,
