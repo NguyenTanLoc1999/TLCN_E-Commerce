@@ -9,6 +9,7 @@ import { MaterialButton } from "../../components/MaterialUI";
 import "./style.css";
 import { addToCart } from "../../actions";
 import {generatePublicUrl} from "../../urlConfig";
+import useSelectImage from './hooks/useSelectImage'
 
 
 /**
@@ -19,6 +20,7 @@ import {generatePublicUrl} from "../../urlConfig";
 const ProductDetailsPage = (props) => {
   const dispatch = useDispatch();
   const product = useSelector((state) => state.product);
+  const { selected,handleSelectImage } = useSelectImage({ images: product?.productDetails?.productPictures ?? [] })
 
   useEffect(() => {
     const { productId } = props.match.params;
@@ -41,8 +43,12 @@ const ProductDetailsPage = (props) => {
       <div className="productDescriptionContainer">
         <div className="flexRow">
           <div className="verticalImageStack">
-            {product.productDetails.productPictures.map((thumb, index) => (
-              <div className="thumbnail">
+            {product.productDetails.productPictures.map((thumb) => (
+              <div 
+                key={thumb._id}
+                className={`thumbnail ${thumb._id === selected?._id ? 'current' : ''}`}
+                onClick={() => handleSelectImage(thumb._id)}
+              >
                 <img src={generatePublicUrl(thumb.img)} alt={thumb.img} />
               </div>
             ))}
@@ -50,8 +56,8 @@ const ProductDetailsPage = (props) => {
           <div className="productDescContainer">
             <div className="productDescImgContainer">
               <img
-                src={generatePublicUrl(product.productDetails.productPictures[0].img)}
-                alt={`${product.productDetails.productPictures[0].img}`}
+                src={generatePublicUrl(selected?.img ?? '')}
+                alt="thumb"
               />
             </div>
 
