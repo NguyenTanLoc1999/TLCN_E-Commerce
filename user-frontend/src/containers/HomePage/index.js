@@ -8,7 +8,7 @@ import Header from '../../components/Header'
 import Layout from '../../components/Layout'
 import MenuHeader from '../../components/MenuHeader'
 import { generatePublicUrl } from "../../urlConfig";
-
+import "./style.css"
 /**
 * @author
 * @function HomePage
@@ -32,7 +32,7 @@ const HomePage = (props) => {
 
   return (
     <Layout>
-      <div style={{ display: "flex" }}>
+      <div className="gridContainer">
         {product.products.map((product) => (
           <Link
             to={`/${product.slug}/${product._id}/p`}

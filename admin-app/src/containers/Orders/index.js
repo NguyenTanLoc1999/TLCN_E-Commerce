@@ -31,7 +31,7 @@ const Orders = (props) => {
     }
     return "";
   };
-
+  console.log("order",order);
   return (
     <Layout sidebar>
       {order.orders.map((orderItem, index) => (
@@ -52,9 +52,9 @@ const Orders = (props) => {
           >
             <div>
               <div className="title">Items</div>
-              {orderItem.items.map((item, index) => (
+              {orderItem?.items?.map((item, index) => (
                 <div className="value" key={index}>
-                  {item.productId.name}
+                  {item?.productId?.name}
                 </div>
               ))}
             </div>

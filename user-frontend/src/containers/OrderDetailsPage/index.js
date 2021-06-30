@@ -4,6 +4,7 @@ import { getOrder } from "../../actions";
 import Layout from "../../components/Layout";
 import Card from "../../components/UI/Card";
 import Price from "../../components/UI/Price";
+import {generatePublicUrl} from '../../urlConfig';
 
 import "./style.css";
 
@@ -86,16 +87,16 @@ const OrderDetailsPage = (props) => {
           </div>
         </Card>
 
-        {orderDetails.items.map((item, index) => (
+        {orderDetails?.items?.map((item, index) => (
           <Card
             style={{ display: "flex", padding: "20px 0", margin: "10px 0" }}
           >
             <div className="flexRow">
               <div className="delItemImgContainer">
-                <img src={item.productId.productPictures[0].img} alt="" />
+                <img src={generatePublicUrl(item?.productId?.productPictures[0].img)} alt="" />
               </div>
               <div style={{ width: "250px" }}>
-                <div className="delItemName">{item.productId.name}</div>
+                <div className="delItemName">{item?.productId?.name}</div>
                 <Price value={item.payablePrice} />
               </div>
             </div>

@@ -39,6 +39,12 @@ const Products = (props) => {
 
 
   const handleClose = () => {
+    setName("");
+    setQuantity("");
+    setPrice("");
+    setDescription("");
+    setCategoryId("");
+    setProductPictures("");
     setShow(false);
   };
 
@@ -55,6 +61,13 @@ const Products = (props) => {
     }
 
     dispatch(addProduct(form)).then(() => setShow(false));
+    //clearing value
+    setName("");
+    setQuantity("");
+    setPrice("");
+    setDescription("");
+    setCategoryId("");
+    setProductPictures("");
   };
   const handleShow = () => setShow(true);
 

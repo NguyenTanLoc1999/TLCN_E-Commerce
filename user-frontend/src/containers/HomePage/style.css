@@ -1,0 +1,33 @@
+.gridContainer {
+  margin-left: 100px;
+  margin-right: 100px;
+  display: grid;
+  grid-template-columns: 200px 200px 200px 200px 200px 200px;
+}
+
+.productContainer {
+  width: 250px;
+  height: 250px;
+  margin: 0 10px;
+}
+.productContainer .productImgContainer {
+  width: 200px;
+  height: 150px;
+  overflow: hidden;
+  text-align: center;
+  margin: 10px auto;
+}
+.productContainer .productImgContainer img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.productInfo {
+  text-align: center;
+  font-size: 12px;
+}
+.productPrice {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 5px 0;
+}

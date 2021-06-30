@@ -46,7 +46,7 @@ const ProductDetailsPage = (props) => {
             {product.productDetails.productPictures.map((thumb) => (
               <div 
                 key={thumb._id}
-                className={`thumbnail ${thumb._id === selected?._id ? 'current' : ''}`}
+                className={`thumbnail ${thumb._id === selected?._id ? 'current' : ''}`} //? operator 3 ngôi. 
                 onClick={() => handleSelectImage(thumb._id)}
               >
                 <img src={generatePublicUrl(thumb.img)} alt={thumb.img} />
@@ -56,7 +56,7 @@ const ProductDetailsPage = (props) => {
           <div className="productDescContainer">
             <div className="productDescImgContainer">
               <img
-                src={generatePublicUrl(selected?.img ?? '')}
+                src={generatePublicUrl(selected?.img ?? '')} //return img when selected null or undefined
                 alt="thumb"
               />
             </div>

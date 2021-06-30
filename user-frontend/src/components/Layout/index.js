@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from '../Header';
 import MenuHeader from '../MenuHeader';
-
 /**
 * @author
 * @function Layout
@@ -13,6 +12,7 @@ const Layout = (props) => {
         <Header />
         <MenuHeader />
         {props.children}
+
     </>
    )
 

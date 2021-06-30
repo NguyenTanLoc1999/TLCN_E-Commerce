@@ -74,13 +74,11 @@ const Header = (props) => {
         menu={<a className="fullName">{auth.user.fullName}</a>}
         menus={[
           { label: "My Profile", href: "", icon: null },
-          { label: "SuperCoin Zone", href: "", icon: null },
           {
-            label: "Orders",
+            label: "My Orders",
             href: `/account/orders`,
             icon: null,
           },
-          { label: "Wishlist", href: "", icon: null },
           { label: "My Chats", href: "", icon: null },
           { label: "Coupons", href: "", icon: null },
           { label: "Rewards", href: "", icon: null },
@@ -106,7 +104,6 @@ const Header = (props) => {
         }
         menus={[
           { label: "My Profile", href: "", icon: null },
-          //{ label: "Flipkart Plus Zone", href: "", icon: null },
           {
             label: "Orders",
             href: `/account/orders`,
@@ -143,8 +140,8 @@ const Header = (props) => {
         <div className="authContainer">
           <div className="row">
             <div className="leftspace">
-              <h2>Login</h2>
-              <p>Get access to your Orders, Wishlist and Recommendations</p>
+              <h2>{signup ? "Register" : "Login"}</h2>
+              <p>Get access to your Orders and Recommendations</p>
             </div>
             <div className="rightspace">
               <div className="loginInputContainer">
