@@ -3,6 +3,9 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const shortid = require("shortid");
 
+
+
+
 exports.signup = (req, res) => {
   User.findOne({ email: req.body.email }).exec(async (error, user) => {
     if (user)
@@ -71,3 +74,6 @@ exports.signout = (req, res) => {
     message: "Signout successfully...!",
   });
 };
+
+
+
