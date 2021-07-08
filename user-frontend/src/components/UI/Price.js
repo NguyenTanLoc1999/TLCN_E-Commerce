@@ -1,5 +1,5 @@
 import React from "react";
-import { BiRupee,BiMoney } from "react-icons/bi";
+import { BiRupee, BiMoney } from "react-icons/bi";
 
 /**
  * @author

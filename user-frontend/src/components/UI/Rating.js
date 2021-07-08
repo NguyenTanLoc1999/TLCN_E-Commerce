@@ -19,7 +19,9 @@ const Rating = (props) => {
         padding: "2px 5px",
       }}
     >
-      {props.value} <IoIosStar />
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <span style={{ marginRight: "2px" }}>{props.value}</span> <IoIosStar />
+      </div>
     </span>
   );
 };

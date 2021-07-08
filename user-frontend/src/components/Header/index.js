@@ -68,9 +68,9 @@ const Header = (props) => {
     }
   }, [auth.authenticate]);
 
-  useEffect(() => {
-    dispatch(getCartItems());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getCartItems());
+  // }, []);
 
   const renderLoggedInMenu = () => {
     return (
@@ -146,14 +146,15 @@ const Header = (props) => {
     }).then(response =>{
       const { data } = response
       const { token, user } = data
-
+      localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify(user));
       dispatch({
         type: authConstants.LOGIN_SUCCESS,
         payload: {
           token,
           user,
         },
-      });
+      })
     })
     setLoginModal(false);
   }
