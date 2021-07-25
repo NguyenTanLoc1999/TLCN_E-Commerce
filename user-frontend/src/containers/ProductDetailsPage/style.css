@@ -1,54 +1,18 @@
 .productDescriptionContainer {
   display: flex;
   box-sizing: border-box;
-  padding: 10px;
-}
-
-.verticalImageStack {
-  width: 67px;
-  display: flex;
-  flex-direction: column;
-}
-
-.thumbnail {
-  width: 63px;
-  height: 63px;
-  border: 2px solid #f0f0f0;
-  overflow: hidden;
-  text-align: center;
-}
-
-.thumbnail:hover {
-  border: 2px solid #333;
-  cursor: pointer;
-}
-
-.thumbnail.current {
-  border: 2px solid #333;
-}
-
-.thumbnail + .thumbnail {
-  margin-top: 6px;
-}
-
-.thumbnail img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-.thumbnail.active {
-  border: 2px solid #2874f0;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .productDescContainer {
-  width: 485px;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  max-width: 550px;
 }
 
 .productDescImgContainer {
-  width: 485px;
-  height: 440px;
-  overflow: hidden;
   text-align: center;
   border: 1px solid #f0f0f0;
 }
@@ -59,37 +23,10 @@
   object-fit: contain;
 }
 
-.breed ul {
-  padding: 0;
-  margin: 0;
-  display: flex;
-  align-items: center;
-}
-
-.breed ul li {
-  list-style: none;
-  margin-right: 5px;
-  display: flex;
-  align-items: center;
-  font-size: 12px;
-}
-
-.breed ul li a {
-  text-decoration: none;
-  color: #777;
-  display: inline-block;
-  font-size: 12px;
-  margin: 0 10px;
-}
-
-.productDetails {
-  margin: 0 10px;
-}
-
 .productDetails .productTitle {
   font-size: 18px;
   color: #212121;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .ratingCount {
@@ -118,6 +55,16 @@
   font-weight: 600;
 }
 
+.extraOffer {
+  display: flex;
+  align-items: center;
+}
+
+.extraOffer span {
+  margin-right: 6px;
+  text-decoration: underline;
+}
+
 .priceContainer {
   align-items: center;
 }
@@ -127,4 +74,24 @@
   font-weight: 600;
   display: flex;
   align-items: center;
+}
+
+.rightSide {
+  margin-left: 15px;
+}
+
+.productDescription {
+  display: block;
+  max-width: 500px;
+}
+
+.productDescription__title {
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.productDescription__content {
+  display: block;
+  font-size: 14px;
 }

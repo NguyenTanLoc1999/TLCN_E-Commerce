@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./style.css";
 
 /**
- * @author 
+ * @author
  * @function
  **/
 
@@ -96,7 +96,17 @@ const MaterialButton = (props) => {
         }}
         onClick={onClick}
       >
-        {props.icon && props.icon}
+        {props.icon && (
+          <span
+            style={{
+              marginRight: "4px",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            {props.icon}
+          </span>
+        )}
         {props.title && props.title}
       </button>
     </div>
